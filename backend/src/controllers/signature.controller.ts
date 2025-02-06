@@ -40,6 +40,20 @@ export class SignatureController {
     }
   }
 
+  async downloadSignedDocument(req: Request, res: Response) {
+    try {
+      const { id } = req.params;
+      const response = await this.apiClient.client.get(`/signature-requests/${id}/files`, {
+        params: {
+          file_type: 'sealed',
+        },
+      });
+      res.json(response.data);
+    } catch (error: any) {
+      throw new BadRequestError(`Failed to download signed document: ${error.message}`);
+    }
+  }
+
   async getSignatureRequestById(req: Request, res: Response) {
     try {
       const { id } = req.params;

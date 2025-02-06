@@ -57,17 +57,10 @@ export function SignatureRequestsPage() {
     fetchRequests();
   }, []);
 
-  const handleDownload = async (documentUrl: string) => {
+  const handleDownload = async (signatureRequestId: string) => {
     try {
-      const blob = await downloadSignedDocument(documentUrl);
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "signed-document.pdf";
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
+      const response = await downloadSignedDocument(signatureRequestId);
+      window.open(response.data.url, "_blank");
     } catch (err) {
       console.error("Failed to download document:", err);
     }

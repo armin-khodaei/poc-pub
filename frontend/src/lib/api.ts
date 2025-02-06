@@ -114,13 +114,13 @@ export const getSignatureRequest = async (
 
 // Download a signed document
 export const downloadSignedDocument = async (
-  documentUrl: string
-): Promise<Blob> => {
-  const response = await fetch(documentUrl);
-  if (!response.ok) {
+  signatureRequestId: string
+): Promise<any> => {
+  const response = await apiCall(`/signature/${signatureRequestId}/download`);
+  if (!response.success) {
     throw new Error("Failed to download document");
   }
-  return response.blob();
+  return response.data;
 };
 
 // Create a freelance agreement
