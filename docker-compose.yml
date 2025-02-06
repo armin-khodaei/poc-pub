@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:5000/api
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - FRONTEND_URL=http://localhost:3000
+    volumes:
+      - ./backend/files:/app/files # For storing PDF templates and generated files
+
+volumes:
+  files_volume:
+    driver: local
