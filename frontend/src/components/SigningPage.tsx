@@ -19,13 +19,10 @@ export function SigningPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [requestDetails, setRequestDetails] = useState<SignatureRequest | null>(
     null
   );
-  const [signingLink, setSigningLink] = useState<string | null>(null);
-
   const state = location.state as SigningPageState;
 
   const client = new SignitEmbedded({
@@ -38,7 +35,6 @@ export function SigningPage() {
   useEffect(() => {
     if (!state?.documentId) {
       setError("Invalid signing session. Please try again.");
-      setIsLoading(false);
       return;
     }
 
@@ -69,9 +65,6 @@ export function SigningPage() {
           throw new Error(linkResponse.error || "Failed to get signing link");
         }
 
-        setSigningLink(linkResponse.data.signing_link);
-        setIsLoading(false);
-
         if (containerRef.current) {
           client.open(linkResponse.data.signing_link, {
             container: containerRef.current,
@@ -81,8 +74,6 @@ export function SigningPage() {
         setError(
           err instanceof Error ? err.message : "An unexpected error occurred"
         );
-      } finally {
-        setIsLoading(false);
       }
     };
 
@@ -161,28 +152,11 @@ export function SigningPage() {
           </CardTitle>
         </CardHeader>
         <CardContent className="p-0 h-[calc(100%-5rem)]">
-          {isLoading ? (
-            <div className="h-full flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-                <p className="text-muted-foreground">
-                  Loading signing session...
-                </p>
-              </div>
-            </div>
-          ) : requestDetails && signingLink ? (
-            <div
-              className="h-full bg-slate-50 p-4"
-              id="signit-container"
-              ref={containerRef}
-            ></div>
-          ) : (
-            <div className="h-full flex items-center justify-center">
-              <div className="text-center text-muted-foreground">
-                No signing session available
-              </div>
-            </div>
-          )}
+          <div
+            className="h-full bg-slate-50 p-4"
+            id="signit-container"
+            ref={containerRef}
+          ></div>
         </CardContent>
       </Card>
     </div>
