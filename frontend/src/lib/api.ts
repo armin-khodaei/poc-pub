@@ -116,7 +116,7 @@ export const getSignatureRequest = async (
 export const downloadSignedDocument = async (
   signatureRequestId: string
 ): Promise<any> => {
-  const response = await apiCall(`/signature/${signatureRequestId}/download`);
+  const response = await apiCall(`/signatures/download/${signatureRequestId}`);
   if (!response.success) {
     throw new Error("Failed to download document");
   }

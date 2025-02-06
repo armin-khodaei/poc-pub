@@ -58,7 +58,9 @@ export function UseCaseCard({
           onClick={onClick}
           className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 transition-all duration-300"
         >
-          Create Agreement
+          {title === "List Signature Requests"
+            ? "View Requests"
+            : "Create Agreement"}
         </Button>
       </CardFooter>
     </Card>

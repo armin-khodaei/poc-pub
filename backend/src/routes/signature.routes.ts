@@ -55,7 +55,7 @@ router.get(
   '/:id/signatories/:signatoryId/signing-link',
   signatureController.generateSigningLink.bind(signatureController)
 );
-router.get('/:id/download', signatureController.downloadSignedDocument.bind(signatureController));
+router.get('/download/:id', signatureController.downloadSignedDocument.bind(signatureController));
 
 // Create signature request endpoint with support for both FormData and JSON
 router.post(

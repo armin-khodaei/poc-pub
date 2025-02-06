@@ -15,42 +15,73 @@ const useCases = [
     description:
       "Create a professional agreement between a freelancer and client with clear terms, deliverables, and payment schedules.",
     icon: FileSignature,
-    tags: ["Embedded signing", "Place fields in specific locations", "Pre-set document uploaded", "Autofill based on form input"],
+    tags: [
+      "Embedded signing",
+      "Place fields in specific locations",
+      "Pre-set document uploaded",
+      "Autofill based on form input",
+    ],
   },
   {
     title: "Employee Onboarding",
     description:
       "Streamline your employee onboarding process with digital offer letters and employment contracts.",
     icon: Users,
-    tags: ["Send using Email/SMS/WhatsApp", "Adapt to user input", "Pre-set document uploaded", "Place fields in specific locations"],
+    tags: [
+      "Send using Email/SMS/WhatsApp",
+      "Adapt to user input",
+      "Pre-set document uploaded",
+      "Place fields in specific locations",
+      "Absher",
+      "Nafath",
+      "NafathApp",
+    ],
   },
   {
     title: "Rental Agreement",
     description:
       "Create and manage property rental agreements with automated signing and verification.",
     icon: Building2,
-    tags: ["Custom document upload", "Auto-position fields", "Pre-fill signer info based on form input", "Embedded signing"],
+    tags: [
+      "Custom document upload",
+      "Pre-fill signer info based on form input",
+      "Embedded signing",
+    ],
   },
   {
     title: "Contractor Agreement",
     description:
       "Protect your confidential information with a legally binding non-disclosure agreement.",
     icon: FileText,
-    tags: ["Send using a pre-saved template", "List available templates", "pre-fill based on form input", "Embedded signing"],
+    tags: [
+      "Send using a pre-saved template",
+      "List available templates",
+      "pre-fill based on form input",
+      "Embedded signing",
+    ],
   },
   {
     title: "Partnership Agreement",
     description:
       "Establish clear terms and conditions for business partnerships with comprehensive agreements.",
     icon: Handshake,
-    tags: ["Custom document upload", "pre-fill based on form input", "Place fields in specific locations"],
+    tags: [
+      "Custom document upload",
+      "pre-fill based on form input",
+      "Place fields in specific locations",
+      "Auto-position fields",
+    ],
   },
   {
     title: "List Signature Requests",
     description:
       "View and manage all your signature requests. Track status, download completed documents, and monitor progress.",
     icon: CheckCircle2,
-    tags: ["List signature requests", "Track status for each request", "Download or take action on each request"],
+    tags: [
+      "List signature requests",
+      "Track status for each request",
+      "Download or take action on each request",
+    ],
   },
 ];
 
@@ -109,7 +140,9 @@ export function Home() {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
-              Explore real-world scenarios and discover the powerful features of Signit API that will elevate your users’ document signing experience; fast, secure, and fully compliant.
+              Explore real-world scenarios and discover the powerful features of
+              Signit API that will elevate your users’ document signing
+              experience; fast, secure, and fully compliant.
             </p>
 
             {/* Features List */}
