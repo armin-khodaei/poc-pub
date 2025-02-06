@@ -60,7 +60,7 @@ export function SignatureRequestsPage() {
   const handleDownload = async (signatureRequestId: string) => {
     try {
       const response = await downloadSignedDocument(signatureRequestId);
-      window.open(response.data.url, "_blank");
+      window.open(response.url, "_blank");
     } catch (err) {
       console.error("Failed to download document:", err);
     }
