@@ -72,9 +72,11 @@ export function SigningPage() {
         setSigningLink(linkResponse.data.signing_link);
         setIsLoading(false);
 
-        client.open(linkResponse.data.signing_link, {
-          container: containerRef.current as HTMLElement,
-        });
+        if (containerRef.current) {
+          client.open(linkResponse.data.signing_link, {
+            container: containerRef.current,
+          });
+        }
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "An unexpected error occurred"
