@@ -15,11 +15,11 @@ import { useNavigate } from "react-router-dom";
 // Dummy templates - to be replaced later
 const contractTemplates = [
   {
-    id: "2a6a1d53-4a6a-4bce-a2e0-539f3ef4fd66",
+    id: "70ab8ce4-9a87-46b0-af04-5d0872d2272f",
     name: "Standard Contractor Agreement",
   },
   {
-    id: "b789ddb9-5e38-4854-ac41-eb990489b269",
+    id: "0b0d6fdf-807f-48db-9c5a-a1b8a3513797",
     name: "IT Contractor Agreement",
   },
 ];
